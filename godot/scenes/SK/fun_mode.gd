@@ -11,11 +11,8 @@ func _process(delta: float) -> void:
 
 func _unhandled_input(event):
 	if event is InputEventKey:
-		if event.pressed and event.keycode == KEY_SPACE and is_visible_in_tree():
+		if event.pressed == false and event.keycode == KEY_SPACE and is_visible_in_tree():
 			WinMeterState.win_state += 1 
-		#if event.pressed and event.keycode == KEY_TAB:
-			#get_tree().change_scene_to_file("res://scenes/SK/work_mode.tscn")
 
-
-func _on_button_pressed() -> void:
+func _on_button_button_up() -> void:
 	WinMeterState.win_state += 1 
