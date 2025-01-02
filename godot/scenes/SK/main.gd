@@ -1,8 +1,8 @@
 extends Node2D
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$MusicContainer.fun_mode_selected()
 	pass # Replace with function body.
 
 
@@ -16,9 +16,11 @@ func toggle_modes():
 	if fun_mode.visible == true:
 		work_mode.visible = true
 		fun_mode.visible = false
+		$MusicContainer.work_mode_selected()
 	else:
 		work_mode.visible = false
 		fun_mode.visible = true
+		$MusicContainer.fun_mode_selected()
 	
 func _unhandled_input(event):
 	if event is InputEventKey:

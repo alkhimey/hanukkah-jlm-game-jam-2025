@@ -98,5 +98,6 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [connection signal="excuse_changed" from="ClientQueue" to="UI/ExcuseLabel" method="_on_client_queue_excuse_changed"]
+[connection signal="queue_size" from="ClientQueue" to="." method="_on_client_queue_queue_size"]
 [connection signal="request_changed" from="ClientQueue" to="UI/RequestLabel" method="_on_client_queue_request_changed"]
 [connection signal="button_down" from="UI/HandleLastClientButton" to="ClientQueue" method="_on_handle_last_client_button_button_down"]

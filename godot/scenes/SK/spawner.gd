@@ -6,12 +6,16 @@ signal request_changed(request: String)
 # Sends the top of the queue when it changes.
 signal excuse_changed(excuse: String)
 
+# Sends the size of the queue when it changes
+signal queue_size(size: int)
+
 @export var queue = []
 
 var time_until_next_arrival = 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	queue_size.emit(queue.size())
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -24,8 +28,6 @@ func _process(delta: float) -> void:
 	# Check if a new client has arrived
 	if time_until_next_arrival <= 0:
 		add_client_to_queue()
-		print("Client arrived")
-		# Generate the next inter-arrival time
 		time_until_next_arrival = generate_inter_arrival_time()
 	pass
 
@@ -34,6 +36,9 @@ func generate_inter_arrival_time():
 	return -log(randf()) / GameParameters.client_arrival_rate
 
 func add_client_to_queue():
+	if queue.size() >= GameParameters.max_clients_in_queue:
+		return
+	
 	var client_scene = load("scenes/SK/Client.tscn")
 	var client_instance = client_scene.instantiate()
 	add_child(client_instance)
@@ -45,11 +50,14 @@ func add_client_to_queue():
 	)
 	client_instance.position = random_position
 	queue.append(client_instance)
+	queue_size.emit(queue.size())
+
 	emit_request_after_queue_update()
 
 func _on_handle_last_client_button_button_down() -> void:
 	if queue.size() > 0:
 		var client_instance = queue.pop_front()
+		queue_size.emit(queue.size())
 		remove_child(client_instance)
 		excuse_changed.emit(client_instance.excuse)
 		emit_request_after_queue_update()
