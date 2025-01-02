@@ -62,6 +62,7 @@ func _on_handle_last_client_button_button_down() -> void:
 		remove_child(client_instance)
 		excuse_changed.emit(client_instance.excuse)
 		emit_request_after_queue_update()
+		$DeclineAudioStreamPlayer.play()
 		print("Client handled")
 	else:
 		print("Warning: handling a client when no clients are in queue")

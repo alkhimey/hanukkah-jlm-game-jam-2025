@@ -38,13 +38,13 @@ func _on_settings_button_pressed() -> void:
 func _on_play_button_pressed() -> void:
 	next_scene = game_scene
 	overlay.fade_out()
-	
+
 func _on_continue_button_pressed() -> void:
 	new_game = false
 	next_scene = game_scene
 	overlay.fade_out()
 
-func _on_exit_button_pressed() -> void:
+func _on_exit_button_pressed() ->	 void:
 	get_tree().quit()
 
 func _on_fade_overlay_on_complete_fade_out() -> void:

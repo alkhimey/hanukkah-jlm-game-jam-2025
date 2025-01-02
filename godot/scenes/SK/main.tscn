@@ -25,13 +25,16 @@ script = ExtResource("5_6hhwi")
 [node name="MusicAudioStreamPlayer" type="AudioStreamPlayer" parent="MusicContainer"]
 stream = ExtResource("5_28o88")
 autoplay = true
+bus = &"Music"
 
 [node name="BGNoiseAudioStreamPlayer" type="AudioStreamPlayer" parent="MusicContainer"]
 stream = ExtResource("6_gt2a1")
 autoplay = true
+bus = &"Music"
 
 [node name="DrumsAudioStreamPlayer" type="AudioStreamPlayer" parent="MusicContainer"]
 stream = ExtResource("8_1f5yd")
 autoplay = true
+bus = &"Music"
 
 [connection signal="queue_size" from="WorkMode" to="MusicContainer" method="_on_work_mode_queue_size"]

@@ -6,6 +6,7 @@
 load_path = "res://.godot/imported/Person.png-913c0c90df7aabe3d2c909633ddde2d3.ctex"
 
 [node name="Client" type="Node2D"]
+scale = Vector2(0.15, 0.15)
 script = ExtResource("1_it8hh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

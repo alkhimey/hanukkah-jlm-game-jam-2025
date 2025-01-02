@@ -17,11 +17,5 @@ func _process(delta: float) -> void:
 		UI.visible = true
 	pass
 
-#func _unhandled_input(event):
-	#if event is InputEventKey:
-		#if event.pressed and event.keycode == KEY_TAB:
-			#get_tree().change_scene_to_file("res://scenes/SK/fun_mode.tscn")
-
-
 func _on_client_queue_queue_size(size: int) -> void:
 	queue_size.emit(size)
