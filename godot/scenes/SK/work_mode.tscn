@@ -26,6 +26,7 @@ visible = false
 position = Vector2(101, -21)
 
 [node name="UI" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="HandleLastClientButton" type="Button" parent="UI"]
 anchors_preset = 4

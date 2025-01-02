@@ -12,7 +12,5 @@ script = ExtResource("1_s2xeu")
 z_index = 1
 
 [node name="WorkMode" parent="." instance=ExtResource("2_h07wu")]
-visible = true
 
 [node name="FunMode" parent="." instance=ExtResource("3_hsmt3")]
-visible = false
