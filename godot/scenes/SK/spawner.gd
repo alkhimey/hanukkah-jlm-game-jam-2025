@@ -45,8 +45,9 @@ func add_client_to_queue():
 
 	var screen_size = get_viewport().get_visible_rect().size
 	var random_position = Vector2(
-		randf_range(0, screen_size.x),
-		randf_range(0, screen_size.y)
+		randf_range(screen_size.x / 4.0, 3.0 * screen_size.x / 4.0),
+		#randf_range(0, screen_size.y)
+		screen_size.y / 2 
 	)
 	client_instance.position = random_position
 	queue.append(client_instance)

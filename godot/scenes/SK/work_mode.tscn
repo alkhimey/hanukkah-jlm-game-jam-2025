@@ -27,7 +27,6 @@ visible = false
 position = Vector2(101, -21)
 
 [node name="UI" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="HandleLastClientButton" type="Button" parent="UI"]
 anchors_preset = 4
@@ -87,15 +86,6 @@ theme_override_constants/separation = 5
 [node name="FadeOverlay" parent="UI" instance=ExtResource("4_da5ve")]
 unique_name_in_owner = true
 visible = false
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UI"]
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_bottom = 309.0
-grow_horizontal = 2
-grow_vertical = 0
 
 [connection signal="excuse_changed" from="ClientQueue" to="UI/ExcuseLabel" method="_on_client_queue_excuse_changed"]
 [connection signal="queue_size" from="ClientQueue" to="." method="_on_client_queue_queue_size"]

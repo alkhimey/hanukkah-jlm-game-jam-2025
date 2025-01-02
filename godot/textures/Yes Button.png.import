@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ijc7t008vj1w"
-path="res://.godot/imported/h_warrior_female.png-995dc9748200085d34d23bb30a9999aa.ctex"
+uid="uid://8615jly1b12y"
+path="res://.godot/imported/Yes Button.png-640c17cf41fb0e769045599398db29ca.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/h_warrior_female.png"
-dest_files=["res://.godot/imported/h_warrior_female.png-995dc9748200085d34d23bb30a9999aa.ctex"]
+source_file="res://textures/Yes Button.png"
+dest_files=["res://.godot/imported/Yes Button.png-640c17cf41fb0e769045599398db29ca.ctex"]
 
 [params]
 

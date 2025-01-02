@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dndsdjmnpbgp3"
-path="res://.godot/imported/h_warrior_male.png-26dd64913bd4b1385c8bf845cf7da71a.ctex"
+uid="uid://dx8epnekp18ui"
+path="res://.godot/imported/Work Button.png-88de72d129301a5450acdf20148e85db.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/h_warrior_male.png"
-dest_files=["res://.godot/imported/h_warrior_male.png-26dd64913bd4b1385c8bf845cf7da71a.ctex"]
+source_file="res://textures/Work Button.png"
+dest_files=["res://.godot/imported/Work Button.png-88de72d129301a5450acdf20148e85db.ctex"]
 
 [params]
 
