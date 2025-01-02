@@ -8,6 +8,11 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	var UI = $UI
+	if self.visible == false:
+		UI.visible = false
+	else:
+		UI.visible = true
 	pass
 
 #func _unhandled_input(event):

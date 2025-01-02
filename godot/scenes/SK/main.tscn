@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://bm6jmd6eimadm"]
+[gd_scene load_steps=5 format=3 uid="uid://chy75p5f4y4v3"]
 
-[ext_resource type="PackedScene" path="res://scenes/SK/meters.tscn" id="1_1ylvk"]
+[ext_resource type="PackedScene" uid="uid://bru70g8eot7r1" path="res://scenes/SK/meters.tscn" id="1_1ylvk"]
 [ext_resource type="Script" path="res://scenes/SK/main.gd" id="1_s2xeu"]
 [ext_resource type="PackedScene" uid="uid://c3rg1ysw7612h" path="res://scenes/SK/work_mode.tscn" id="2_h07wu"]
 [ext_resource type="PackedScene" uid="uid://cgrd817rpyvmj" path="res://scenes/SK/fun_mode.tscn" id="3_hsmt3"]
@@ -12,6 +12,7 @@ script = ExtResource("1_s2xeu")
 z_index = 1
 
 [node name="WorkMode" parent="." instance=ExtResource("2_h07wu")]
+visible = true
 
 [node name="FunMode" parent="." instance=ExtResource("3_hsmt3")]
 visible = false
