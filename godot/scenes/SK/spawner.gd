@@ -1,5 +1,8 @@
 extends Node2D
 
+# Sends the top of the queue when it changes.
+signal request_changed(request: String)
+
 @export var queue = []
 
 var time_until_next_arrival = 0.0
@@ -41,11 +44,16 @@ func add_client_to_queue():
 	)
 	client_instance.position = random_position
 	queue.append(client_instance)
+	request_changed.emit(client_instance.request)
 
 func _on_handle_last_client_button_button_down() -> void:
 	if queue.size() > 0:
 		var client_instance = queue.pop_front()
 		remove_child(client_instance)
+		
+		if queue.size() > 0:
+			request_changed.emit(queue.front().request)
+
 		print("Client handled")
 	else:
 		print("Warning: handling a client when no clients are in queue")

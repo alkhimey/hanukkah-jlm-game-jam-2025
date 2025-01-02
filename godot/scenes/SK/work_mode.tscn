@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://c3rg1ysw7612h"]
+[gd_scene load_steps=6 format=3 uid="uid://c3rg1ysw7612h"]
 
 [ext_resource type="Script" path="res://scenes/SK/spawner.gd" id="1_07i5j"]
 [ext_resource type="Script" path="res://scenes/SK/work_mode.gd" id="1_jo03h"]
-[ext_resource type="PackedScene" uid="uid://bru70g8eot7r1" path="res://scenes/SK/meters.tscn" id="1_y5uho"]
+[ext_resource type="PackedScene" path="res://scenes/SK/meters.tscn" id="1_y5uho"]
+[ext_resource type="Script" path="res://scenes/SK/request_label.gd" id="4_2rjgh"]
+[ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/fade_overlay.tscn" id="4_da5ve"]
 
 [node name="WorkMode" type="Node2D"]
 script = ExtResource("1_jo03h")
@@ -13,18 +15,63 @@ script = ExtResource("1_07i5j")
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="HandleLastClientButton" type="Button" parent="Control"]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
-focus_mode = 0
-text = "טפל בלקוח"
+size_flags_horizontal = 6
+size_flags_vertical = 6
+metadata/_edit_use_anchors_ = true
 
 [node name="Meters" parent="." instance=ExtResource("1_y5uho")]
 visible = false
 position = Vector2(101, -21)
 
-[connection signal="button_down" from="Control/HandleLastClientButton" to="ClientQueue" method="_on_handle_last_client_button_button_down"]
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HandleLastClientButton" type="Button" parent="UI"]
+offset_right = 90.0
+offset_bottom = 31.0
+focus_mode = 0
+text = "טפל בלקוח"
+
+[node name="RequestLabel" type="Label" parent="UI"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+text = "asdasdasdasd"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+script = ExtResource("4_2rjgh")
+
+[node name="CenterContainer" type="CenterContainer" parent="UI"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/CenterContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="FadeOverlay" parent="UI" instance=ExtResource("4_da5ve")]
+unique_name_in_owner = true
+visible = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 309.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[connection signal="request_changed" from="ClientQueue" to="UI/RequestLabel" method="_on_client_queue_request_changed"]
+[connection signal="button_down" from="UI/HandleLastClientButton" to="ClientQueue" method="_on_handle_last_client_button_button_down"]

@@ -1,0 +1,5 @@
+[
+	{"request": "Meeting", "excuse": "I have a doctor's appointment."},
+	{"request": "Deadline", "excuse": "My internet was down."},
+	{"request": "Homework", "excuse": "My dog ate it."}
+]
