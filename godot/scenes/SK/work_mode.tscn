@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://c3rg1ysw7612h"]
+[gd_scene load_steps=4 format=3 uid="uid://c3rg1ysw7612h"]
 
 [ext_resource type="Script" path="res://scenes/SK/spawner.gd" id="1_07i5j"]
+[ext_resource type="Script" path="res://scenes/SK/work_mode.gd" id="1_jo03h"]
+[ext_resource type="PackedScene" uid="uid://bru70g8eot7r1" path="res://scenes/SK/meters.tscn" id="1_y5uho"]
 
 [node name="WorkMode" type="Node2D"]
+script = ExtResource("1_jo03h")
 
 [node name="ClientQueue" type="Node2D" parent="."]
 script = ExtResource("1_07i5j")
@@ -18,5 +21,8 @@ layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0
 text = "טפל בלקוח"
+
+[node name="Meters" parent="." instance=ExtResource("1_y5uho")]
+position = Vector2(101, -21)
 
 [connection signal="button_down" from="Control/HandleLastClientButton" to="ClientQueue" method="_on_handle_last_client_button_button_down"]

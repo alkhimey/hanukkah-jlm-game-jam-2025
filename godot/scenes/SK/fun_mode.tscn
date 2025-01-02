@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cgrd817rpyvmj"]
+[gd_scene load_steps=3 format=3 uid="uid://cgrd817rpyvmj"]
 
 [ext_resource type="Script" path="res://scenes/SK/fun_mode.gd" id="1_awehs"]
-[ext_resource type="PackedScene" uid="uid://ol4eudkbtiyv" path="res://scenes/SK/win_meter.tscn" id="2_aoqx5"]
-[ext_resource type="PackedScene" uid="uid://cvb8l0e4d42nj" path="res://scenes/SK/lose_meter.tscn" id="3_o4hjt"]
+[ext_resource type="PackedScene" uid="uid://bru70g8eot7r1" path="res://scenes/SK/meters.tscn" id="2_aoqx5"]
 
 [node name="FunMode" type="Node2D"]
 script = ExtResource("1_awehs")
@@ -14,8 +13,6 @@ offset_right = 386.0
 offset_bottom = 214.0
 text = "Hit Space to Win Card Game"
 
-[node name="WinMeter" parent="." instance=ExtResource("2_aoqx5")]
-
-[node name="LoseMeter" parent="." instance=ExtResource("3_o4hjt")]
+[node name="Meters" parent="." instance=ExtResource("2_aoqx5")]
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
