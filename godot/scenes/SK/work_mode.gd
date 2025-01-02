@@ -10,7 +10,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func _unhandled_input(event):
-	if event is InputEventKey:
-		if event.pressed and event.keycode == KEY_TAB:
-			get_tree().change_scene_to_file("res://scenes/SK/fun_mode.tscn")
+#func _unhandled_input(event):
+	#if event is InputEventKey:
+		#if event.pressed and event.keycode == KEY_TAB:
+			#get_tree().change_scene_to_file("res://scenes/SK/fun_mode.tscn")

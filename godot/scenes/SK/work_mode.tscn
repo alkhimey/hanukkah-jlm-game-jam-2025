@@ -20,9 +20,11 @@ offset_bottom = 40.0
 layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0
+focus_mode = 0
 text = "טפל בלקוח"
 
 [node name="Meters" parent="." instance=ExtResource("1_y5uho")]
+visible = false
 position = Vector2(101, -21)
 
 [connection signal="button_down" from="Control/HandleLastClientButton" to="ClientQueue" method="_on_handle_last_client_button_button_down"]
