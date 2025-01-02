@@ -55,21 +55,28 @@ func add_client_to_queue():
 
 	emit_request_after_queue_update()
 
-func _on_handle_last_client_button_button_down() -> void:
+func emit_request_after_queue_update():
+	if queue.size() > 0:
+		request_changed.emit(queue.front().request)
+	else:
+		request_changed.emit("")
+
+
+func _on_approve_button_button_down() -> void:
+	print("Approve pressed!")
+
+func _on_decline_button_button_down() -> void:
+	if handle_client():
+		$DeclineAudioStreamPlayer.play()
+
+func handle_client() -> bool:
 	if queue.size() > 0:
 		var client_instance = queue.pop_front()
 		queue_size.emit(queue.size())
 		remove_child(client_instance)
 		excuse_changed.emit(client_instance.excuse)
 		emit_request_after_queue_update()
-		$DeclineAudioStreamPlayer.play()
-		print("Client handled")
+		return true
 	else:
 		print("Warning: handling a client when no clients are in queue")
-		return
-
-func emit_request_after_queue_update():
-	if queue.size() > 0:
-		request_changed.emit(queue.front().request)
-	else:
-		request_changed.emit("")
+		return false

@@ -5,8 +5,7 @@ signal queue_size(size: int)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -15,7 +14,6 @@ func _process(delta: float) -> void:
 		UI.visible = false
 	else:
 		UI.visible = true
-	pass
 
 func _on_client_queue_queue_size(size: int) -> void:
 	queue_size.emit(size)
