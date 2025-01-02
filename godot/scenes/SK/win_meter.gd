@@ -20,4 +20,7 @@ func _process(delta: float) -> void:
 		
 	var lose_progress_bar = $LoseProgressBar
 	lose_progress_bar.value = LoseMeterState.lose_state
+	if lose_progress_bar.value >= lose_progress_bar.max_value:
+		get_tree().change_scene_to_file("res://scenes/SK/lose_screen.tscn")
+
 	pass
