@@ -3,6 +3,9 @@ extends Node2D
 # Sends the top of the queue when it changes.
 signal request_changed(request: String)
 
+# Sends the top of the queue when it changes.
+signal excuse_changed(excuse: String)
+
 @export var queue = []
 
 var time_until_next_arrival = 0.0
@@ -15,9 +18,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	var lose_change = GameParameters.lose_rate * queue.size() * delta
 	LoseMeterState.lose_state =  min(LoseMeterState.lose_state + lose_change, 100)
-	
-	print("Lose points:", LoseMeterState.lose_state)
-	
+		
 	time_until_next_arrival -= delta
 
 	# Check if a new client has arrived
@@ -44,17 +45,21 @@ func add_client_to_queue():
 	)
 	client_instance.position = random_position
 	queue.append(client_instance)
-	request_changed.emit(client_instance.request)
+	emit_request_after_queue_update()
 
 func _on_handle_last_client_button_button_down() -> void:
 	if queue.size() > 0:
 		var client_instance = queue.pop_front()
 		remove_child(client_instance)
-		
-		if queue.size() > 0:
-			request_changed.emit(queue.front().request)
-
+		excuse_changed.emit(client_instance.excuse)
+		emit_request_after_queue_update()
 		print("Client handled")
 	else:
 		print("Warning: handling a client when no clients are in queue")
 		return
+
+func emit_request_after_queue_update():
+	if queue.size() > 0:
+		request_changed.emit(queue.front().request)
+	else:
+		request_changed.emit("")

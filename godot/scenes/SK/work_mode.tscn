@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://c3rg1ysw7612h"]
+[gd_scene load_steps=7 format=3 uid="uid://c3rg1ysw7612h"]
 
 [ext_resource type="Script" path="res://scenes/SK/spawner.gd" id="1_07i5j"]
 [ext_resource type="Script" path="res://scenes/SK/work_mode.gd" id="1_jo03h"]
 [ext_resource type="PackedScene" path="res://scenes/SK/meters.tscn" id="1_y5uho"]
 [ext_resource type="Script" path="res://scenes/SK/request_label.gd" id="4_2rjgh"]
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/fade_overlay.tscn" id="4_da5ve"]
+[ext_resource type="Script" path="res://scenes/SK/excuse_label.gd" id="4_xcsvm"]
 
 [node name="WorkMode" type="Node2D"]
 script = ExtResource("1_jo03h")
@@ -26,10 +27,27 @@ position = Vector2(101, -21)
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="HandleLastClientButton" type="Button" parent="UI"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -15.5
 offset_right = 90.0
-offset_bottom = 31.0
+offset_bottom = 15.5
+grow_vertical = 2
 focus_mode = 0
-text = "טפל בלקוח"
+text = "נפנף לקוח"
+
+[node name="ExcuseLabel" type="Label" parent="UI"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+text = "excuse placeholder"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+script = ExtResource("4_xcsvm")
 
 [node name="RequestLabel" type="Label" parent="UI"]
 anchors_preset = 12
@@ -41,7 +59,7 @@ grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 6
 size_flags_vertical = 6
-text = "asdasdasdasd"
+text = "request placeholder"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
@@ -73,5 +91,6 @@ offset_bottom = 309.0
 grow_horizontal = 2
 grow_vertical = 0
 
+[connection signal="excuse_changed" from="ClientQueue" to="UI/ExcuseLabel" method="_on_client_queue_excuse_changed"]
 [connection signal="request_changed" from="ClientQueue" to="UI/RequestLabel" method="_on_client_queue_request_changed"]
 [connection signal="button_down" from="UI/HandleLastClientButton" to="ClientQueue" method="_on_handle_last_client_button_button_down"]
