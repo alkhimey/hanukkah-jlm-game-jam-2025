@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" path="res://scenes/SK/spawner.gd" id="1_07i5j"]
 [ext_resource type="Script" path="res://scenes/SK/work_mode.gd" id="1_jo03h"]
-[ext_resource type="PackedScene" uid="uid://dysslyh566pny" path="res://scenes/SK/meters.tscn" id="1_y5uho"]
 [ext_resource type="AudioStream" uid="uid://bgmr86sp2rhpd" path="res://audio/decline/decline_sfx_1.wav" id="3_yb1ac"]
 [ext_resource type="Script" path="res://scenes/SK/request_label.gd" id="4_2rjgh"]
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/fade_overlay.tscn" id="4_da5ve"]
@@ -12,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cvvqyhuj2hsp7" path="res://textures/No Button.png" id="5_nx28m"]
 [ext_resource type="AudioStream" uid="uid://ol1llh37ft66" path="res://audio/decline/decline_sfx_3.wav" id="5_yohxl"]
 [ext_resource type="AudioStream" uid="uid://dgejdtp3t2k6u" path="res://audio/decline/decline_sfx_4.wav" id="6_aendr"]
+[ext_resource type="Texture2D" uid="uid://dv8fkk0tmfre" path="res://textures/Left Arrow.png" id="7_n4sqh"]
 [ext_resource type="Texture2D" uid="uid://8615jly1b12y" path="res://textures/Yes Button.png" id="8_a68o0"]
 [ext_resource type="Texture2D" uid="uid://jgv4o000sfba" path="res://textures/placeholder_bg.jpeg" id="14_2514t"]
 
@@ -33,11 +33,21 @@ script = ExtResource("1_07i5j")
 stream = SubResource("AudioStreamRandomizer_8fg6i")
 bus = &"Sound"
 
-[node name="Meters" parent="." instance=ExtResource("1_y5uho")]
-visible = false
-position = Vector2(101, -21)
-
 [node name="UI" type="CanvasLayer" parent="."]
+
+[node name="ToggleToFunButton" type="TextureButton" parent="UI"]
+anchors_preset = -1
+anchor_left = 0.036
+anchor_top = 1.0
+anchor_right = 0.194
+anchor_bottom = 1.0
+offset_left = 0.264002
+offset_top = -77.0
+offset_right = 513.256
+offset_bottom = 264.0
+grow_vertical = 0
+scale = Vector2(0.15, 0.15)
+texture_normal = ExtResource("7_n4sqh")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI"]
 anchors_preset = -1
@@ -45,9 +55,9 @@ anchor_left = 0.0260417
 anchor_top = -0.436728
 anchor_right = 0.168229
 anchor_bottom = -0.15571
-offset_left = 476.0
+offset_left = 490.0
 offset_top = 356.5
-offset_right = 940.1
+offset_right = 954.1
 offset_bottom = 872.45
 grow_horizontal = 0
 grow_vertical = 2
@@ -66,9 +76,12 @@ texture_normal = ExtResource("5_nx28m")
 [node name="ExcuseLabel" type="Label" parent="UI"]
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 23.0
+offset_top = 45.0
+offset_bottom = 68.0
 grow_horizontal = 2
 size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_ff4mr")
 text = "excuse placeholder"
 horizontal_alignment = 1
@@ -86,6 +99,7 @@ grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 6
 size_flags_vertical = 6
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_ff4mr")
 text = "request placeholder"
 horizontal_alignment = 1
@@ -111,6 +125,7 @@ unique_name_in_owner = true
 visible = false
 
 [node name="Background" type="Sprite2D" parent="."]
+position = Vector2(9, -1)
 scale = Vector2(0.730512, 0.730512)
 texture = ExtResource("14_2514t")
 centered = false
@@ -118,5 +133,6 @@ centered = false
 [connection signal="excuse_changed" from="ClientQueue" to="UI/ExcuseLabel" method="_on_client_queue_excuse_changed"]
 [connection signal="queue_size" from="ClientQueue" to="." method="_on_client_queue_queue_size"]
 [connection signal="request_changed" from="ClientQueue" to="UI/RequestLabel" method="_on_client_queue_request_changed"]
+[connection signal="button_down" from="UI/ToggleToFunButton" to="." method="_on_toggle_to_fun_button_button_down"]
 [connection signal="button_down" from="UI/VBoxContainer/ApproveButton" to="ClientQueue" method="_on_approve_button_button_down"]
 [connection signal="button_down" from="UI/VBoxContainer/DeclineButton" to="ClientQueue" method="_on_decline_button_button_down"]
