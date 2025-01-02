@@ -11,9 +11,10 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func _input(event):
-	if event.is_action_pressed("space"):
-		WinMeterState.win_state += 1 
+func _unhandled_input(event):
+	if event is InputEventKey:
+		if event.pressed and event.keycode == KEY_SPACE:
+			WinMeterState.win_state += 1 
 
 
 func _on_button_pressed() -> void:
