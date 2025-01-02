@@ -1,6 +1,9 @@
-[gd_scene format=3 uid="uid://taqpbyqoiv0m"]
+[gd_scene load_steps=2 format=3 uid="uid://taqpbyqoiv0m"]
+
+[ext_resource type="Script" path="res://scenes/SK/lose_screen.gd" id="1_ao84v"]
 
 [node name="WinScreen" type="Node2D"]
+script = ExtResource("1_ao84v")
 
 [node name="Panel" type="Panel" parent="."]
 offset_right = 575.0

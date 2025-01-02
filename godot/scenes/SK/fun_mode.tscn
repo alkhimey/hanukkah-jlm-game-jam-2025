@@ -11,17 +11,24 @@ script = ExtResource("1_awehs")
 visible = false
 
 [node name="Button" type="Button" parent="."]
-offset_left = 156.0
-offset_top = 241.0
-offset_right = 381.0
-offset_bottom = 272.0
+offset_left = 18.0
+offset_top = 93.0
+offset_right = 243.0
+offset_bottom = 124.0
 text = "Hit Space to Win Card Game"
 
+[node name="Button2" type="Button" parent="."]
+offset_left = 259.0
+offset_top = 93.0
+offset_right = 484.0
+offset_bottom = 124.0
+text = "Click TAB to work"
+
 [node name="Panel" type="Panel" parent="."]
-offset_left = 216.0
-offset_top = 119.0
-offset_right = 317.0
-offset_bottom = 220.0
+offset_left = 206.0
+offset_top = 160.0
+offset_right = 307.0
+offset_bottom = 261.0
 
 [node name="TextureRect" type="TextureRect" parent="Panel"]
 layout_mode = 1
@@ -35,3 +42,5 @@ expand_mode = 3
 
 [connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="button_up" from="Button2" to="." method="_on_button_button_up"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
