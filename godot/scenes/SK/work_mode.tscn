@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/SK/spawner.gd" id="1_07i5j"]
 [ext_resource type="Script" path="res://scenes/SK/work_mode.gd" id="1_jo03h"]
-[ext_resource type="PackedScene" uid="uid://bru70g8eot7r1" path="res://scenes/SK/meters.tscn" id="1_y5uho"]
+[ext_resource type="PackedScene" path="res://scenes/SK/meters.tscn" id="1_y5uho"]
 [ext_resource type="Script" path="res://scenes/SK/request_label.gd" id="4_2rjgh"]
 [ext_resource type="PackedScene" uid="uid://bkk87o2ooo6at" path="res://ui/overlays/fade_overlay.tscn" id="4_da5ve"]
 [ext_resource type="Script" path="res://scenes/SK/excuse_label.gd" id="4_xcsvm"]
