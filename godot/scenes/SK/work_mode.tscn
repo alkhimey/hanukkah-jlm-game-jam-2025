@@ -1,3 +1,22 @@
-[gd_scene format=3 uid="uid://c3rg1ysw7612h"]
+[gd_scene load_steps=2 format=3 uid="uid://c3rg1ysw7612h"]
+
+[ext_resource type="Script" path="res://scenes/SK/spawner.gd" id="1_07i5j"]
 
 [node name="WorkMode" type="Node2D"]
+
+[node name="ClientQueue" type="Node2D" parent="."]
+script = ExtResource("1_07i5j")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HandleLastClientButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "טפל בלקוח"
+
+[connection signal="button_down" from="Control/HandleLastClientButton" to="ClientQueue" method="_on_handle_last_client_button_button_down"]

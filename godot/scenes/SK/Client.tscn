@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://lkv6mjh1joii"]
+
+[ext_resource type="Texture2D" uid="uid://ijc7t008vj1w" path="res://textures/h_warrior_female.png" id="1_76jbl"]
+
+[node name="Client" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("1_76jbl")
