@@ -73,6 +73,7 @@ func _on_approve_button_button_down() -> void:
 func _on_decline_button_button_down() -> void:
 	if handle_client():
 		request_cooldown.emit(GameParameters.decline_cooldown)
+		LoseMeterState.lose_state += GameParameters.decline_lose_increase
 		$DeclineAudioStreamPlayer.play()
 
 func handle_client() -> bool:

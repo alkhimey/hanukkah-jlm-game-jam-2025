@@ -6,18 +6,21 @@ extends Node
 const client_arrival_rate = 2.0
  
 # Points per second per client in queue
-const lose_rate_increase = 0.001 # 1 
+const lose_rate_increase = 0.1
 
 # Automatic decrease over time (points per second_
 const win_rate_decrease = 0.5
 
 # Increase per user action
-const win_increase = 20# 1
+const win_increase = 1
+
+# Amount of increase of lose meter for using the decline button 
+const decline_lose_increase = 3
 
 const max_clients_in_queue = 10
 
 # Time in seconds to wait before a clinet can be approved/declined again
-const approve_cooldown = 2.0
+const approve_cooldown = 6.0
 
 # Time in seconds to wait before a clinet can be approved/declined again
 const decline_cooldown = 2.0
