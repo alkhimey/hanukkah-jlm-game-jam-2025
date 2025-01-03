@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c3rg1ysw7612h"]
+[gd_scene load_steps=17 format=3 uid="uid://c3rg1ysw7612h"]
 
 [ext_resource type="Script" path="res://scenes/SK/spawner.gd" id="1_07i5j"]
 [ext_resource type="Script" path="res://scenes/SK/work_mode.gd" id="1_jo03h"]
@@ -13,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://dgejdtp3t2k6u" path="res://audio/decline/decline_sfx_4.wav" id="6_aendr"]
 [ext_resource type="Texture2D" uid="uid://dv8fkk0tmfre" path="res://textures/Left Arrow.png" id="7_n4sqh"]
 [ext_resource type="Texture2D" uid="uid://8615jly1b12y" path="res://textures/Yes Button.png" id="8_a68o0"]
+[ext_resource type="Script" path="res://scenes/SK/work_buttons_container.gd" id="8_rcj3u"]
 [ext_resource type="Texture2D" uid="uid://jgv4o000sfba" path="res://textures/placeholder_bg.jpeg" id="14_2514t"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_8fg6i"]
@@ -49,7 +50,7 @@ grow_vertical = 0
 scale = Vector2(0.15, 0.15)
 texture_normal = ExtResource("7_n4sqh")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI"]
+[node name="WorkButtonsContainer" type="VBoxContainer" parent="UI"]
 anchors_preset = -1
 anchor_left = 0.0260417
 anchor_top = -0.436728
@@ -64,12 +65,13 @@ grow_vertical = 2
 scale = Vector2(0.15, 0.15)
 size_flags_horizontal = 6
 size_flags_vertical = 6
+script = ExtResource("8_rcj3u")
 
-[node name="ApproveButton" type="TextureButton" parent="UI/VBoxContainer"]
+[node name="ApproveButton" type="TextureButton" parent="UI/WorkButtonsContainer"]
 layout_mode = 2
 texture_normal = ExtResource("8_a68o0")
 
-[node name="DeclineButton" type="TextureButton" parent="UI/VBoxContainer"]
+[node name="DeclineButton" type="TextureButton" parent="UI/WorkButtonsContainer"]
 layout_mode = 2
 texture_normal = ExtResource("5_nx28m")
 
@@ -133,6 +135,7 @@ centered = false
 [connection signal="excuse_changed" from="ClientQueue" to="UI/ExcuseLabel" method="_on_client_queue_excuse_changed"]
 [connection signal="queue_size" from="ClientQueue" to="." method="_on_client_queue_queue_size"]
 [connection signal="request_changed" from="ClientQueue" to="UI/RequestLabel" method="_on_client_queue_request_changed"]
+[connection signal="request_cooldown" from="ClientQueue" to="UI/WorkButtonsContainer" method="_on_client_queue_request_cooldown"]
 [connection signal="button_down" from="UI/ToggleToFunButton" to="." method="_on_toggle_to_fun_button_button_down"]
-[connection signal="button_down" from="UI/VBoxContainer/ApproveButton" to="ClientQueue" method="_on_approve_button_button_down"]
-[connection signal="button_down" from="UI/VBoxContainer/DeclineButton" to="ClientQueue" method="_on_decline_button_button_down"]
+[connection signal="button_down" from="UI/WorkButtonsContainer/ApproveButton" to="ClientQueue" method="_on_approve_button_button_down"]
+[connection signal="button_down" from="UI/WorkButtonsContainer/DeclineButton" to="ClientQueue" method="_on_decline_button_button_down"]

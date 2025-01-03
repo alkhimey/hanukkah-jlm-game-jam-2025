@@ -18,7 +18,6 @@ func _process(delta: float) -> void:
 		var a_delta = GameParameters.excuse_fade_out_rate * delta * text_length_factor
 		self.modulate.a = max(0, self.modulate.a - a_delta)
 
-
 func _on_client_queue_excuse_changed(excuse: String) -> void:
 	self.text = excuse
 	self.modulate.a = 1

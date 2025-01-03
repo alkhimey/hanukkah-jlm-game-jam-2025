@@ -9,6 +9,9 @@ signal excuse_changed(excuse: String)
 # Sends the size of the queue when it changes
 signal queue_size(size: int)
 
+# Request colldown. amount is in seconds.
+signal request_cooldown(amount: float)
+
 @export var queue = []
 
 var time_until_next_arrival = 0.0
@@ -64,9 +67,12 @@ func emit_request_after_queue_update():
 
 func _on_approve_button_button_down() -> void:
 	print("Approve pressed!")
+	request_cooldown.emit(GameParameters.approve_cooldown)
+
 
 func _on_decline_button_button_down() -> void:
 	if handle_client():
+		request_cooldown.emit(GameParameters.decline_cooldown)
 		$DeclineAudioStreamPlayer.play()
 
 func handle_client() -> bool:
