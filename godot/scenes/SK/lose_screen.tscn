@@ -1,8 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://dt21v05q8bqp1"]
+[gd_scene load_steps=3 format=3 uid="uid://dt21v05q8bqp1"]
 
 [ext_resource type="Script" path="res://scenes/SK/lose_screen.gd" id="1_j22ak"]
+[ext_resource type="AudioStream" uid="uid://bdgefhbdc1ykq" path="res://audio/phone game over.wav" id="2_v3ga2"]
 
-[node name="WinScreen" type="Node2D"]
+[node name="LoseScreen" type="Node2D"]
 script = ExtResource("1_j22ak")
 
 [node name="Panel" type="Panel" parent="."]
@@ -33,3 +34,9 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 50
 text = "זומנת לשימוע"
+
+[node name="PhoneGameOver" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_v3ga2")
+volume_db = 2.0
+autoplay = true
+bus = &"Music"

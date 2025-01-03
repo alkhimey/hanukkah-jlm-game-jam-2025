@@ -20,7 +20,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	var lose_change = GameParameters.lose_rate * queue.size() * delta
+	var lose_change = GameParameters.lose_rate_increase * queue.size() * delta
 	LoseMeterState.lose_state =  min(LoseMeterState.lose_state + lose_change, 100)
 		
 	time_until_next_arrival -= delta

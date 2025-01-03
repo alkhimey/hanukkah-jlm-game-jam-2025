@@ -34,7 +34,7 @@ func _ready():
 	config.load(SETTINGS_FILE)
 	_configure_audio()
 	_configure_language()
-	
+
 func set_value(key, value):
 	config.set_value(SECTION, key, value)
 	config.save(SETTINGS_FILE)

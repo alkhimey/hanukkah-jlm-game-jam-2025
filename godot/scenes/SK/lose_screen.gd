@@ -1,10 +1,10 @@
 extends Node2D
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
+	var tween = get_tree().create_tween()
+	$PhoneGameOver.volume_db = -30
+	tween.tween_property($PhoneGameOver, "volume_db", 1, 1.25)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

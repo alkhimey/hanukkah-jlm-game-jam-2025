@@ -27,16 +27,19 @@ script = ExtResource("5_6hhwi")
 
 [node name="MusicAudioStreamPlayer" type="AudioStreamPlayer" parent="MusicContainer"]
 stream = ExtResource("5_28o88")
+volume_db = 2.0
 autoplay = true
 bus = &"Music"
 
 [node name="BGNoiseAudioStreamPlayer" type="AudioStreamPlayer" parent="MusicContainer"]
 stream = ExtResource("6_gt2a1")
+volume_db = 2.0
 autoplay = true
 bus = &"Music"
 
 [node name="DrumsAudioStreamPlayer" type="AudioStreamPlayer" parent="MusicContainer"]
 stream = ExtResource("8_1f5yd")
+volume_db = 2.0
 autoplay = true
 bus = &"Music"
 
@@ -44,9 +47,13 @@ bus = &"Music"
 
 [node name="ToggleToWork" type="AudioStreamPlayer" parent="ToggleSFX"]
 stream = ExtResource("9_4mowr")
+volume_db = -15.0
+bus = &"Sound"
 
 [node name="ToggleToFun" type="AudioStreamPlayer" parent="ToggleSFX"]
 stream = ExtResource("10_tpugv")
+volume_db = -15.0
+bus = &"Sound"
 
 [connection signal="queue_size" from="WorkMode" to="MusicContainer" method="_on_work_mode_queue_size"]
 [connection signal="toggle_requested" from="WorkMode" to="." method="_on_work_mode_toggle_requested"]

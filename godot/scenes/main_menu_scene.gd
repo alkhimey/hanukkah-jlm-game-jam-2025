@@ -27,15 +27,18 @@ func _ready() -> void:
 	new_game_button.grab_focus()
 
 func _on_settings_button_pressed() -> void:
+	$UISFX.play()
 	new_game = false
 	next_scene = settings_scene
 	overlay.fade_out()
 	
 func _on_play_button_pressed() -> void:
+	$UISFX.play()
 	next_scene = game_scene
 	overlay.fade_out()
 
 func _on_exit_button_pressed() ->	 void:
+	$UISFX.play()
 	get_tree().quit()
 
 func _on_fade_overlay_on_complete_fade_out() -> void:

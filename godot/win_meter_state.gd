@@ -11,11 +11,4 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	time_passed += delta
-	if time_passed >= 2.0:
-		time_passed = 0.0	
-		if win_state >= 1:
-			win_state -=1
-		else:
-			win_state = 0
-	pass
+	win_state = max(0, win_state - GameParameters.win_rate_decrease * delta)

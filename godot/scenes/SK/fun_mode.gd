@@ -18,7 +18,8 @@ func _process(delta: float) -> void:
 func _unhandled_input(event):
 	if event is InputEventKey:
 		if event.pressed == false and event.keycode == KEY_SPACE and is_visible_in_tree():
-			WinMeterState.win_state += 1 
+			$CardsSFX.play()
+			WinMeterState.win_state += GameParameters.win_increase
 
 func _on_button_button_up() -> void:
 	WinMeterState.win_state += 1 

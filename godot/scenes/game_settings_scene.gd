@@ -14,4 +14,5 @@ func _on_fade_overlay_on_complete_fade_out():
 	get_tree().change_scene_to_file("res://scenes/main_menu_scene.tscn")
 
 func _on_return_button_pressed():
+	$UISFX.play()
 	overlay.fade_out()

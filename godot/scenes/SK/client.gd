@@ -5,9 +5,12 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var requestExcuse = GameData.request_excuses.pick_random()
-	request = requestExcuse.request
-	excuse = requestExcuse.excuse
+	#var requestExcuse = GameData.request_excuses.pick_random()
+	#request = requestExcuse.request
+	#excuse = requestExcuse.excuse
+	
+	request = GameData.requests.pick_random()
+	excuse = GameData.excuses.pick_random()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
